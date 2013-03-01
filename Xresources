@@ -1,0 +1,35 @@
+#include "/home/fliang/.colors/tomorrow-night"
+
+Xcursor.theme: Vanilla-DMZ-AA
+
+! Font smoothing ---------------
+Xft.autohint: false
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: true
+Xft.antialias: true
+Xft.dpi: 96
+Xft.rgba: rgb
+
+! Font choice ----------------
+! *font: xft:Consolas-11:antialias=true
+! *boldFont: xft:Consolas-11:style:bold:antialias=true
+! *font: xft:DejaVu Sans Mono:pixelsize=12
+! *boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12
+! *font: xft:terminus:pixelsize=12:antialias=true
+! *boldFont: xft:terminus:bold:pixelsize=12:antialias=true
+*font: xft:monospace::pixelsize=12:antialias=true
+*boldFont: xft:monospace:pixelsize=12:style:bold:antialias=true
+dzen2.font: terminus:pixelsize=12:antialias=false:hinting=none
+dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
+
+
+! URxvt ----------------
+URxvt*urgentOnBell: true
+URxvt*saveLines: 12000
+URxvt*geometry: 80x20
+URxvt*scrollBar: false
+URxvt*.depth: 32
+URxvt*.background: [70]#000000
+! URxvt*transparent: true
+! URxvt*shading: 85

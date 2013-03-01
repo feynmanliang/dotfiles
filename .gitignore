@@ -1,0 +1,6 @@
+xmonad/xmonad.o
+xmonad/xmonad.hi
+xmonad/xmonad-x86_64-linux
+xmonad/history
+*.errors
+*.o
