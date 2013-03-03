@@ -37,7 +37,8 @@ plugins=(git ruby archlinux vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=$PATH:/usr/bin/core_perl:/usr/bin/vendor_perl/:/usr/bin/site_perl/
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin/:~/bin
 
 # Install bundler gems to hoem directory

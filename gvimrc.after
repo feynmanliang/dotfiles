@@ -1,1 +1,7 @@
 colorscheme hybrid
+
+" hide scrollbars and toolbars and menu
+set guioptions-=m
+set guioptions-=T
+set guioptions+=LlRrb
+set guioptions-=LlRrb

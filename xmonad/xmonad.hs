@@ -53,8 +53,8 @@ myWorkspaces    = ["1:main","2:web","3:vim","4:chat","5:music", "6:gimp", "7:mis
 -- Dzen/Conky
 -- myXmonadBar = "dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
 -- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '2080' -w '1040' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
-myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '900' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '900' -w '700' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1345' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1345' -w '460' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 --}}}
 -- Main {{{
@@ -68,7 +68,7 @@ main = do
       , modMask             = modMask'
       , layoutHook          = layoutHook'
       , manageHook          = manageHook'
-      , logHook             = myLogHook dzenLeftBar >> fadeInactiveLogHook 0xdddddddd
+      , logHook             = myLogHook dzenLeftBar >> fadeInactiveLogHook 0.75
       , normalBorderColor   = colorNormalBorder
       , focusedBorderColor  = colorFocusedBorder
       , borderWidth         = 2
@@ -105,7 +105,7 @@ manageHook' = (composeAll . concat $
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
-        myGimp	  = ["Gimp"]
+        myGimp	  = ["Gimp", "Inkscape"]
         myDev	  = ["urxctc", "urxvt"]
         myVim	  = ["Gvim"]
 

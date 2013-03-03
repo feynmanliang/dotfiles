@@ -1,9 +1,3 @@
-set guioptions-=m
-set guioptions-=T
-set guioptions-=l
-set guioptions-=b
-set guioptions-=r
-
 " filename completion
 if has("wildmenu")
     set wildignore+=*.a,*.o
