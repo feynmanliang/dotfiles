@@ -39,15 +39,17 @@ autocutsel -selection PRIMARY -fork &
 # screensaver
 /usr/bin/xscreensaver -no-splash &
 
-# compositing
-compton --config ~/.compton.conf -b
-
-# wallpaper
-sh ~/.fehbg &
-
 # icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
   --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
+
+# compositing
+compton --config ~/.compton.conf -b
+
+sleep 3
+
+# wallpaper
+sh ~/.fehbg &
 
 # start xmonad (dzen2 included)
 exec xmonad
