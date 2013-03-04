@@ -11,15 +11,20 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# .Xresources
-xrdb -merge ~/.Xresources &
-
 # vmware wrapper
 vmware-user-suid-wrapper &
 
-# icon tray
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
-  --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
+# .Xresources
+xrdb -load ~/.Xresources &
+
+# urxvt daemon
+urxvtd -q -o -f
+
+# gpg agent for caching keychain password
+eval $(gpg-agent --daemon) &
+
+# swap caps lock and esc
+xmodmap ~/.speedswapper
 
 # set the cursor
 xsetroot -cursor_name left_ptr
@@ -27,11 +32,9 @@ xsetroot -cursor_name left_ptr
 # hide inactive cursor
 hhp &
 
-# urxvt daemon
-urxvtd -q -o -f
-
-# swap caps lock and esc
-xmodmap ~/.speedswapper
+# synchronize clipboard
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 
 # screensaver
 /usr/bin/xscreensaver -no-splash &
@@ -41,6 +44,10 @@ compton --config ~/.compton.conf -b
 
 # wallpaper
 sh ~/.fehbg &
+
+# icon tray
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
 
 # start xmonad (dzen2 included)
 exec xmonad

@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fliang"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,6 +40,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/bin/core_perl:/usr/bin/vendor_perl/:/usr/bin/site_perl/
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin/:~/bin
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Install bundler gems to hoem directory
 export GEM_HOME=~/.gem/ruby/1.9.1/bin/
@@ -66,3 +67,8 @@ fi
 # Color grep output
 export GREP_COLOR='1;33'
 
+# mutt background fix
+export COLORFGBG="default;default"
+
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
