@@ -55,6 +55,9 @@ compton --config ~/.compton.conf -b
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
   --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
 
+# battery
+batti &
+
 # notificaitons
 dunst -config ~/.dunstrc
 
