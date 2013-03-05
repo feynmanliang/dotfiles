@@ -16,7 +16,7 @@ ${endif}\
 ^fg(\#ebac54)^i(/home/fliang/.xmonad/dzen2/mpd.xbm) ${if_running spotify}\
 ${texeci 1 ~/bin/conky.spotify.nowplaying.work.sh}\
 ^fg(\#00ffff)\
-${scroll 50 ${exec cat ~/.cache/spotify-nowplaying}} \
+${scroll 40 ${exec cat ~/.cache/spotify-nowplaying}} \
 - ${exec cat ~/.cache/spotify-nowplaying-elapsed-pretty}/${exec cat ~/.cache/spotify-nowplaying-length-pretty}\
 ${endif}\
   ^fg(\#ebac54)^i(/home/fliang/.xmonad/dzen2/volume.xbm)\

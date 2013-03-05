@@ -39,14 +39,14 @@ autocutsel -selection PRIMARY -fork &
 # screensaver
 /usr/bin/xscreensaver -no-splash &
 
-# icon tray
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
-  --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
-
 # compositing
 compton --config ~/.compton.conf -b
 
 sleep 3
+
+# icon tray
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
 
 # wallpaper
 sh ~/.fehbg &
