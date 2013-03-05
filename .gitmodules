@@ -1,0 +1,6 @@
+[submodule "janus/vim-hybrid"]
+	path = janus/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid
+[submodule "janus/sudo.vim"]
+	path = janus/sudo.vim
+	url = https://github.com/vim-scripts/sudo.vim
