@@ -1,15 +1,15 @@
 # A basic .muttrc for use with Gmail
 
 # Change the following six lines to match your Gmail account details
-set imap_user = "YOUR.EMAIL@gmail.com"
-set imap_pass = "PASSWORD"
-set smtp_url = "smtp://YOUR.EMAIL@smtp.gmail.com:587/"
-set smtp_pass = "PASSWORD"
-set from = "YOUR.EMAIL@gmail.com"
-set realname = "YOUR NAME"
+set imap_user = "feynman.liang@gmail.com"
+set imap_pass = ""
+set smtp_url = "smtp://feynman.liang@smtp.gmail.com:587/"
+set smtp_pass = ""
+set from = "feynman.liang@gmail.com"
+set realname = "Feynman Liang"
 
 # Change the following line to a different editor you prefer.
-set editor = "nano"
+set editor = "vim"
 
 # Basic config, you can leave this as is
 set folder = "imaps://imap.gmail.com:993"
@@ -46,3 +46,29 @@ macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+
+color hdrdefault cyan default
+color attachment yellow default
+ 
+color header brightyellow default "From: "
+color header brightyellow default "Subject: "
+color header brightyellow default "Date: "
+ 
+color quoted green default
+color quoted1 cyan default
+color quoted2 green default
+color quoted3 cyan default
+ 
+color error     red             default         # error messages
+color message   white           default         # message  informational messages
+color indicator white           red             # indicator for the "current message"
+color status    white           blue            # status lines in the folder index sed for the mini-help line
+color tree      red             default         # the "tree" display of threads within the folder index
+color search    white           blue            # search matches found with search within the internal pager
+color markers   red             default         # The markers indicate a wrapped line hen showing messages with looong lines
+ 
+color index     yellow default  '~O'
+color index     yellow default  '~N'
+color index     brightred       default '~F'    # Flagged Messages are important!
+color index     blue default    '~D'            # Deleted Mails - use dark color as these are already "dealt with"
