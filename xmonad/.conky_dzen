@@ -8,7 +8,7 @@ update_interval 1
 TEXT
 ^i(/home/fliang/.xmonad/dzen2/cpu.xbm) ^fg(\#FFFFFF)${cpu}%\
 ^i(/home/fliang/.xmonad/dzen2/mem.xbm) ^fg(\#FFFFFF)${memperc}%\
-^fg(\#ebac54) ${if_existing /proc/net/route enp3s0}\
+^fg(\#ebac54) ${if_existing /proc/net/route enp2s0}\
 ^i(/home/fliang/.xmonad/dzen2/net_wired.xbm)\
 ^fg(\#00aa4a) ^i(/home/fliang/.xmonad/dzen2/net_down_03.xbm)${downspeed enp3s0}\
 ^fg(\#ff3333) ^i(/home/fliang/.xmonad/dzen2/net_up_03.xbm)${upspeed enp3s0}\
@@ -20,6 +20,7 @@ ${if_running spotify}${texeci 1 ~/bin/conky.spotify.nowplaying.work.sh}\
 ${else}${if_mpd_playing}\
 ^fg(\#00ffff)${scroll 40 ${mpd_artist} - ${mpd_title}} \
 - ${mpd_elapsed}/${mpd_length}\
+${endif}\
 ${endif}\
   ^fg(\#ebac54)^i(/home/fliang/.xmonad/dzen2/volume.xbm)\
  ^fg(\#00ffff)${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%\

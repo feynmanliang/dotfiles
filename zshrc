@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fliang"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -37,7 +37,8 @@ plugins=(git ruby archlinux vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/bin/core_perl:/usr/bin/vendor_perl/:/usr/bin/site_perl/
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin/:~/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -69,6 +70,10 @@ export GREP_COLOR='1;33'
 
 # mutt background fix
 export COLORFGBG="default;default"
+
+# ssh auth socket via gnome keyring
+SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-Dzlpff/ssh$'`
+[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

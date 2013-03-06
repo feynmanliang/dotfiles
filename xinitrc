@@ -21,7 +21,7 @@ xrdb -load ~/.Xresources &
 urxvtd -q -o -f
 
 # gpg agent for caching keychain password
-eval $(gpg-agent --daemon) &
+# eval $(gpg-agent --enable-ssh-support --daemon) &
 
 # swap caps lock and esc
 xmodmap ~/.speedswapper
@@ -31,14 +31,6 @@ xsetroot -cursor_name left_ptr
 
 # hide inactive cursor
 hhp &
-
-# Gnome keyring
-# source /etc/X11/xinit/xinitrc.d/30-dbus
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
 
 # synchronize clipboard
 autocutsel -fork &
@@ -53,19 +45,19 @@ devmon &
 # compositing
 compton --config ~/.compton.conf -b
 
-# icon tray
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
-  --expand true --width 6 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
-
-# battery
-batti &
-
 # music
 mpd ~/.mpdconf
 
-# notificaitons
+# notificaitons (conflict's with dbus service)
 # killall dunst
 # dunst -config ~/.dunstrc
+
+# icon tray
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 9 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
+
+# battery
+batti &
 
 # Dropbox
 dropboxd &
@@ -75,6 +67,9 @@ nm-applet --sm-disable &
 
 # wallpaper
 sh ~/.fehbg &
+
+# screen dimming
+redshiftgui &
 
 # start xmonad (dzen2 included)
 exec xmonad
