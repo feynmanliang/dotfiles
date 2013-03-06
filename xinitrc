@@ -11,7 +11,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-
 # .Xresources
 xrdb -load ~/.Xresources &
 
@@ -45,6 +44,9 @@ export GNOME_KEYRING_PID
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+# automount devices
+devmon &
+
 # screensaver
 /usr/bin/xscreensaver -no-splash &
 
@@ -58,8 +60,18 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 # battery
 batti &
 
+# music
+mpd ~/.mpdconf
+
 # notificaitons
-dunst -config ~/.dunstrc
+# killall dunst
+# dunst -config ~/.dunstrc
+
+# Dropbox
+dropboxd &
+
+# network manager
+nm-applet --sm-disable &
 
 # wallpaper
 sh ~/.fehbg &
