@@ -20,21 +20,17 @@ xrdb -load ~/.Xresources &
 # urxvt daemon
 urxvtd -q -o -f
 
-# gpg agent for caching keychain password
-# eval $(gpg-agent --enable-ssh-support --daemon) &
-
 # swap caps lock and esc
 xmodmap ~/.speedswapper
+
+# laptop fn keys
+xbindkeys &
 
 # set the cursor
 xsetroot -cursor_name left_ptr
 
 # hide inactive cursor
 hhp &
-
-# synchronize clipboard
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
 
 # automount devices
 devmon &

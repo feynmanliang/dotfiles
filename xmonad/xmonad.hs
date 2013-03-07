@@ -49,10 +49,8 @@ myTerminal      = "urxvtc"
 modMask' :: KeyMask
 modMask' = mod4Mask
 -- Define workspaces
-myWorkspaces    = ["1:main","2:web","3:vim","4:chat","5:music", "6:gimp", "7:misc"]
+myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
 -- Dzen/Conky
--- myXmonadBar = "dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
--- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '2080' -w '1040' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1030' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
 myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
@@ -84,10 +82,11 @@ manageHook' = (composeAll . concat $
     [ [resource     =? r            --> doIgnore            |   r   <- myIgnores] -- ignore desktop
     , [className    =? c            --> doShift  "1:main"   |   c   <- myDev    ] -- move dev to main
     , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move webs to main
-    , [className    =? c            --> doShift  "3:vim"    |   c   <- myVim    ] -- move webs to main
-    , [className    =? c            --> doShift	 "4:chat"   |   c   <- myChat   ] -- move chat to chat
-    , [className    =? c            --> doShift  "5:music"  |   c   <- myMusic  ] -- move music to music
-    , [className    =? c            --> doShift  "6:gimp"   |   c   <- myGimp   ] -- move img to div
+    , [className    =? c            --> doShift  "3:write"  |   c   <- myWrite  ] -- move webs to main
+    , [className    =? c            --> doShift  "4:read"   |   c   <- myRead   ] -- move webs to main
+    , [className    =? c            --> doShift	 "5:chat"   |   c   <- myChat   ] -- move chat to chat
+    , [className    =? c            --> doShift  "6:music"  |   c   <- myMusic  ] -- move music to music
+    , [className    =? c            --> doShift  "7:gimp"   |   c   <- myGimp   ] -- move img to div
     , [className    =? c            --> doCenterFloat       |   c   <- myFloats ] -- float my floats
     , [name         =? n            --> doCenterFloat       |   n   <- myNames  ] -- float my names
     , [isFullscreen                 --> myDoFullFloat                           ]
@@ -105,23 +104,24 @@ manageHook' = (composeAll . concat $
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
-        myGimp	  = ["Gimp", "Inkscape"]
-        myDev	  = ["urxctc", "urxvt"]
-        myVim	  = ["Gvim"]
+        myGimp	  = ["Gimp", "Inkscape", "Xsane"]
+        myDev	  = ["urxctc", "urxvt", "urxvtc"]
+        myWrite   = ["Gvim", "Cantor"]
+        myRead    = ["Evince"]
 
         -- resources
         myIgnores = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
 
         -- names
-        myNames   = ["bashrun","Google Chrome Options","Chromium Options"]
+        myNames   = ["bashrun","Google Chrome Options","Chromium Options","Preferences"]
 
 -- a trick for fullscreen but stil allow focusing of other WSs
 myDoFullFloat :: ManageHook
 myDoFullFloat = doF W.focusDown <+> doFullFloat
 -- }}}
-layoutHook'  =  onWorkspaces ["1:main","5:music"] customLayout $ 
-                onWorkspaces ["6:gimp"] gimpLayout $ 
-                onWorkspaces ["4:chat"] imLayout $
+layoutHook'  =  onWorkspaces ["1:main","6:music"] customLayout $
+                onWorkspaces ["5:chat"] imLayout $
+                onWorkspaces ["7:gimp"] gimpLayout $
                 customLayout2
 
 --Bar
@@ -248,8 +248,8 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,     xK_Left      ), shiftToPrev)
     
     -- quit, or restart
-    , ((modMask .|. shiftMask,      xK_q        ), io (exitWith ExitSuccess))
-    , ((modMask,                    xK_q        ), spawn "xmonad --recompile && xmonad --restart")
+    , ((modMask .|. shiftMask,      xK_BackSpace        ), io (exitWith ExitSuccess))
+    , ((modMask,                    xK_q        ), spawn "killall dzen2 && xmonad --recompile && xmonad --restart")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N

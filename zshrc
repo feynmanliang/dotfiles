@@ -54,6 +54,9 @@ export VISUAL="vim"
 # vim ZSH keybindings with normal reverse search
 bindkey -v                                          # Use vi key bindings
 bindkey '^r' history-incremental-search-backward    # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
+bindkey '^s' history-incremental-search-forward     # [Ctrl-r] - Search forward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
+bindkey "^[[A" history-search-backward # up and down partial matching
+bindkey "^[[B" history-search-forward # up and down partial matching
 
 # Include personal settings (customize ~/.secrets as needed)
 if [ -e ~/.secrets ]; then
@@ -70,10 +73,6 @@ export GREP_COLOR='1;33'
 
 # mutt background fix
 export COLORFGBG="default;default"
-
-# ssh auth socket via gnome keyring
-SSH_AUTH_SOCK=`ss -xl | grep -o '/run/user/1000/keyring-Dzlpff/ssh$'`
-[ -z "$SSH_AUTH_SOCK" ] || export SSH_AUTH_SOCK
 
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

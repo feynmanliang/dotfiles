@@ -4,9 +4,9 @@
 [submodule "janus/sudo.vim"]
 	path = janus/sudo.vim
 	url = https://github.com/vim-scripts/sudo.vim
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule "vim"]
 	path = vim
 	url = https://github.com/carlhuda/janus.git
+[submodule "zprezto"]
+	path = zprezto
+	url = https://github.com/sorin-ionescu/prezto.git

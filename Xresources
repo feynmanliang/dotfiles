@@ -20,6 +20,8 @@ Xft.rgba: rgb
 ! *boldFont: xft:terminus:bold:pixelsize=12:antialias=true
 URxvt*font: xft:Consolas-10
 URxvt*boldFont: xft:Consolas-10
+Cantor*font: xft:Consolas-10
+Cantor*boldFont: xft:Consolas-10
 dzen2.font: terminus:pixelsize=12:antialias=false:hinting=none
 dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 
