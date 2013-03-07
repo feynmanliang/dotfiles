@@ -9,16 +9,17 @@
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
+# if [[ "$OSTYPE" == darwin* ]]; then
+#   export BROWSER='open'
+# fi
+export BROWSER='chromium'
 
 #
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
