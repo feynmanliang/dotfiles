@@ -3,13 +3,13 @@
 Xcursor.theme: Vanilla-DMZ-AA
 
 ! Font smoothing ---------------
-Xft.autohint: false
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: true
-Xft.antialias: true
-Xft.dpi: 96
-Xft.rgba: rgb
+! Xft.autohint: false
+! Xft.lcdfilter: lcddefault
+! Xft.hintstyle: hintfull
+! Xft.hinting: true
+! Xft.antialias: true
+! Xft.dpi: 96
+! Xft.rgba: rgb
 
 ! Font choice ----------------
 ! *font: xft:Consolas-11:antialias=true
@@ -18,10 +18,8 @@ Xft.rgba: rgb
 ! *boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12
 ! *font: xft:terminus:pixelsize=12:antialias=true
 ! *boldFont: xft:terminus:bold:pixelsize=12:antialias=true
-URxvt*font: xft:Consolas-10
-URxvt*boldFont: xft:Consolas-10
-Cantor*font: xft:Consolas-10
-Cantor*boldFont: xft:Consolas-10
+*font: xft:Consolas-12
+*boldFont: xft:Consolas-12
 dzen2.font: terminus:pixelsize=12:antialias=false:hinting=none
 dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 

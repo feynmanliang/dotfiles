@@ -5,5 +5,3 @@ set guioptions-=m
 set guioptions-=T
 set guioptions+=LlRrb
 set guioptions-=LlRrb
-
-set guifont=Consolas\ 10
