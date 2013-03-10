@@ -14,7 +14,7 @@ fi
  
 # Include personal settings (customize ~/.secrets as needed)
 if [ -e ~/.secrets ]; then
-  source ~/.secrets
+  source ~/.secrets/zsh_env
 fi
 
 # Aliases

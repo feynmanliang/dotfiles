@@ -1,10 +1,11 @@
 # A basic .muttrc for use with Gmail
+set my_gmail_pass=`gpg --batch -q --decrypt ~/.secrets/gmail.gpg`
 
 # Change the following six lines to match your Gmail account details
 set imap_user = "feynman.liang@gmail.com"
-set imap_pass = ""
+set imap_pass = $my_gmail_pass
 set smtp_url = "smtp://feynman.liang@smtp.gmail.com:587/"
-set smtp_pass = ""
+set smtp_pass = $my_gmail_pass
 set from = "feynman.liang@gmail.com"
 set realname = "Feynman Liang"
 
@@ -47,7 +48,7 @@ macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 
-
+# Colors!
 color hdrdefault cyan default
 color attachment yellow default
  
