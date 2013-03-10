@@ -67,5 +67,8 @@ sh ~/.fehbg &
 # screen dimming
 redshiftgui &
 
+# update dynamic dns
+afraid-dyndns-uv &
+
 # start xmonad (dzen2 included)
 exec xmonad

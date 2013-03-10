@@ -52,7 +52,7 @@ modMask' = mod4Mask
 myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1030' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'"
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- only good on 1080p monitor
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 --}}}
 -- Main {{{
@@ -81,9 +81,9 @@ manageHook' :: ManageHook
 manageHook' = (composeAll . concat $
     [ [resource     =? r            --> doIgnore            |   r   <- myIgnores] -- ignore desktop
     , [className    =? c            --> doShift  "1:main"   |   c   <- myDev    ] -- move dev to main
-    , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move webs to main
-    , [className    =? c            --> doShift  "3:write"  |   c   <- myWrite  ] -- move webs to main
-    , [className    =? c            --> doShift  "4:read"   |   c   <- myRead   ] -- move webs to main
+    , [className    =? c            --> doShift  "2:web"    |   c   <- myWebs   ] -- move web to web
+    , [className    =? c            --> doShift  "3:write"  |   c   <- myWrite  ] -- move writers to write
+    , [className    =? c            --> doShift  "4:read"   |   c   <- myRead   ] -- move readers to read
     , [className    =? c            --> doShift	 "5:chat"   |   c   <- myChat   ] -- move chat to chat
     , [className    =? c            --> doShift  "6:music"  |   c   <- myMusic  ] -- move music to music
     , [className    =? c            --> doShift  "7:gimp"   |   c   <- myGimp   ] -- move img to div
@@ -113,7 +113,7 @@ manageHook' = (composeAll . concat $
         myIgnores = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
 
         -- names
-        myNames   = ["bashrun","Google Chrome Options","Chromium Options","Preferences"]
+        myNames   = ["bashrun","Google Chrome Options","Chromium Options","Preferences","Open Document"]
 
 -- a trick for fullscreen but stil allow focusing of other WSs
 myDoFullFloat :: ManageHook
