@@ -100,7 +100,7 @@ manageHook' = (composeAll . concat $
 
         -- classnames
         myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor"]
-        myWebs    = ["Firefox","Google-chrome","Chromium", "Chromium-browser"]
+        myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser","Dwb"]
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
@@ -213,7 +213,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_l        ), spawn "xscreensaver-command -lock")
     -- Programs
     , ((0,                          xK_Print    ), spawn "scrot -e 'mv $f ~/screenshots/'")
-    , ((modMask,		            xK_o        ), spawn "chromium")
+    , ((modMask,		            xK_o        ), spawn "dwb")
     , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
     -- Media Keys
     , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")        -- XF86AudioMute

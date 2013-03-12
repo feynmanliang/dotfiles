@@ -4,8 +4,6 @@
   XF86KbdBrightnessUp
 "sudo /home/fliang/bin/kbd.illum.down.sh"
   XF86KbdBrightnessDown
-"SamsungToolsDummyCommand"
-  Control+Alt+Shift+Mod4+F1+F2+F3
 "samsung-tools --show-notify --quiet --cpu hotkey"
   XF86Launch3
 "samsung-tools --show-notify --quiet --wireless hotkey"

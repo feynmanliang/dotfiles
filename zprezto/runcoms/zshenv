@@ -76,9 +76,4 @@ fi
 # PacMatic - don't let pacman/yaourt clobber the system!
 #
 export warn_time="86400"  # (seconds)
-export rss_feed="https://www.archlinux.org/feeds/news/"
-export log_file="/var/log/arch-news.log"
-export pacdiff_program="pacdiff"
 export pacman_program="yaourt"
-export mail_list="https://mailman.archlinux.org/pipermail/arch-general/2013-March.txt"
-export pacman_log="/var/log/pacman.log"
