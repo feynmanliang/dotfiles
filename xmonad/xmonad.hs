@@ -47,12 +47,14 @@ import qualified Data.Map as M
 myTerminal      = "urxvtc"
 -- Define modMask
 modMask' :: KeyMask
-modMask' = mod4Mask
+modMask' = mod1Mask
 -- Define workspaces
 myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1030' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
+-- uncomment first for 1080p, second for laptop
 myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- only good on 1080p monitor
+-- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- only good on 1080p monitor
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 --}}}
 -- Main {{{
@@ -99,14 +101,15 @@ manageHook' = (composeAll . concat $
         name      = stringProperty "WM_NAME"
 
         -- classnames
-        myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor"]
+        --
+        myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor","XMathematica"]
         myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser","Dwb"]
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
         myGimp	  = ["Gimp", "Inkscape", "Xsane"]
         myDev	  = ["urxctc", "urxvt", "urxvtc"]
-        myWrite   = ["Gvim", "Cantor"]
+        myWrite   = ["Gvim", "matlab"]
         myRead    = ["Evince"]
 
         -- resources

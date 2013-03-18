@@ -67,10 +67,20 @@ alias rm='nocorrect rm'
 autoload -U zmv
 alias zmv="noglob zmv -W"
 
+# remote server stuff
+alias sshtunnel="ssh -ND 4711 -v feynmanliang@direct.feynmanliang.com"
+
+# ipython notebook
+alias ipythonnb="ipython notebook --pylab inline"
+
 # Functions
 #
 # (f)ind by (n)ame
 # usage: fn foo 
 # to find all files containing 'foo' in the name
 function fn() { ls **/*$1* }
-
+function secure_chromium {
+  port=4711
+  chromium --proxy-server="socks://localhost:$port" &
+  exit
+}

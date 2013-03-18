@@ -25,8 +25,8 @@ set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
 set auto_tag = yes
 hdr_order Date From To Cc
+alternative_order text/html text/enriched text/plain
 auto_view text/html
-alternative_order text/plain text/enriched text/html *
 
 # Look and Feel
 set status_on_top # statusline on top
