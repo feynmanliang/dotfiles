@@ -12,11 +12,6 @@ fi
 
 # Customize to your needs...
  
-# Source profile
-if [ -e /etc/profile ]; then
-  source /etc/profile
-fi
-
 # Include personal settings (customize ~/.secrets as needed)
 if [ -e ~/.secrets ]; then
   source ~/.secrets/zsh_env
@@ -38,9 +33,6 @@ fi
 
 # Colorize terminal
 export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
-
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Print system info
 if [ "$PS1" ]; then

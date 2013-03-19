@@ -1,7 +1,10 @@
 colorscheme hybrid
 
-" hide scrollbars and toolbars and menu
-set guioptions-=m
-set guioptions-=T
-set guioptions+=LlRrb
-set guioptions-=LlRrb
+if has('gui_running')
+  " hide scrollbars and toolbars and menu
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions+=LlRrb
+  set guioptions-=LlRrb
+  set guifont=Consolas\ 10
+endif

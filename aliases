@@ -73,6 +73,9 @@ alias sshtunnel="ssh -ND 4711 -v feynmanliang@direct.feynmanliang.com"
 # ipython notebook
 alias ipythonnb="ipython notebook --pylab inline"
 
+# better man
+alias man="pinfo -m"
+
 # Functions
 #
 # (f)ind by (n)ame

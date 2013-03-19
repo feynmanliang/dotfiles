@@ -12,14 +12,8 @@ Xcursor.theme: Vanilla-DMZ-AA
 ! Xft.rgba: rgb
 
 ! Font choice ----------------
-! *font: xft:Consolas-11:antialias=true
-! *boldFont: xft:Consolas-11:style:bold:antialias=true
-! *font: xft:DejaVu Sans Mono:pixelsize=12
-! *boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12
-! *font: xft:terminus:pixelsize=12:antialias=true
-! *boldFont: xft:terminus:bold:pixelsize=12:antialias=true
-*font: xft:Consolas-12
-*boldFont: xft:Consolas-12:style=Bold
+URxvt*font: xft:Consolas:size=12
+URxvt*boldFont: xft:Consolas:size=12:style=bold
 dzen2.font: terminus:pixelsize=12:antialias=false:hinting=none
 dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 

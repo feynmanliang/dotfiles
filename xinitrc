@@ -17,6 +17,9 @@ xrdb -load ~/.Xresources &
 # screen resolution
 ./.screenlayout/ViewSonicExternal.sh &
 
+# polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent1 &
+
 # urxvt daemon
 urxvtd -q -o -f
 

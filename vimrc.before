@@ -7,3 +7,6 @@ if has("wildmenu")
     set wildmenu
     set wildmode=longest,list:full
 endif
+
+" PYTHONPATH (for powerline)
+set rtp+=/usr/lib/python3.3/site-packages/powerline/bindings/vim
