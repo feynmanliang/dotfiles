@@ -47,10 +47,6 @@ compton --config ~/.compton.conf -b
 # music
 mpd ~/.mpdconf
 
-# notificaitons (conflict's with dbus service)
-# killall dunst
-# dunst -config ~/.dunstrc
-
 # icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
   --expand true --width 9 --transparent true --alpha 1 --tint 0x1B1D1E --height 24 &
