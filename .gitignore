@@ -8,3 +8,4 @@ xmonad/history
 *.o
 *.swp
 bin/non-db.txt
+*/cache/
