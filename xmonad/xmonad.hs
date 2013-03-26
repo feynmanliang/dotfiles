@@ -52,9 +52,8 @@ modMask' = mod1Mask
 myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1030' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
--- uncomment first for 1080p, second for laptop
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- only good on 1080p monitor
--- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- only good on 1080p monitor
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
+-- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 --}}}
 -- Main {{{
@@ -102,7 +101,7 @@ manageHook' = (composeAll . concat $
 
         -- classnames
         --
-        myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor","XMathematica"]
+        myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor", "Mathematica", "XMathematica"]
         myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser","Dwb"]
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
@@ -222,9 +221,9 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")        -- XF86AudioMute
     , ((0,                          0x1008ff11  ), spawn "amixer -q sset Master 5%-")   -- XF86AudioLowerVolume
     , ((0,                          0x1008ff13  ), spawn "amixer -q sset Master 5%+")   -- XF86AudioRaiseVolume
-    , ((0,                          0x1008ff14  ), spawn "rhythmbox-client --play-pause")
-    , ((0,                          0x1008ff17  ), spawn "rhythmbox-client --next")
-    , ((0,                          0x1008ff16  ), spawn "rhythmbox-client --previous")
+    -- , ((0,                          0x1008ff14  ), spawn "rhythmbox-client --play-pause")
+    -- , ((0,                          0x1008ff17  ), spawn "rhythmbox-client --next")
+    -- , ((0,                          0x1008ff16  ), spawn "rhythmbox-client --previous")
 
     -- layouts
     , ((modMask,                    xK_space    ), sendMessage NextLayout)
@@ -252,7 +251,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     
     -- quit, or restart
     , ((modMask .|. shiftMask,      xK_BackSpace        ), io (exitWith ExitSuccess))
-    , ((modMask,                    xK_q        ), spawn "killall dzen2 && xmonad --recompile && xmonad --restart")
+    , ((modMask,                    xK_q        ), spawn "killall dzen2 && killall conky && xmonad --recompile && xmonad --restart")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N

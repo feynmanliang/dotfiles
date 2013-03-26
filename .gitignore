@@ -7,3 +7,4 @@ xmonad/history
 *.errors
 *.o
 *.swp
+bin/non-db.txt
