@@ -20,6 +20,15 @@ xrdb -load ~/.Xresources &
 # gnome polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# gnome keyring
+# Start GNOME Keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh )
+# You probably need to do this too:
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
 # urxvt daemon
 urxvtd -q -o -f
 

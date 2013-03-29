@@ -212,7 +212,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_c        ), kill)
     , ((modMask,                    xK_F2       ), spawn "gmrun")
     ---, ((modMask .|. shiftMask,      xK_l        ), spawn "slock")
-    , ((modMask .|. shiftMask,      xK_l        ), spawn "xscreensaver-command -lock")
+    , ((modMask .|. shiftMask,      xK_l        ), spawn "xscreensaver-command -activate")
     -- Programs
     , ((0,                          xK_Print    ), spawn "scrot -e 'mv $f ~/screenshots/'")
     , ((modMask,		            xK_o        ), spawn "dwb")
