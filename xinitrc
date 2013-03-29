@@ -15,31 +15,31 @@ fi
 xrdb -load ~/.Xresources &
 
 # screen resolution
-./.screenlayout/ViewSonicExternal.sh &
+./.screenlayout/ViewSonicExternal.sh
 
 # gnome polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # gnome keyring
 # Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh )
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets )
 # You probably need to do this too:
-export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
+# export SSH_AUTH_SOCK # handled by zprezto gpg-agent module
+# export GPG_AGENT_INFO # handled by zprezto gpg-agent module
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
 # urxvt daemon
-urxvtd -q -o -f
+urxvtd -q -o -f &
 
 # swap caps lock and esc
-xmodmap ~/.speedswapper
+xmodmap ~/.speedswapper &
 
 # laptop fn keys
 xbindkeys &
 
 # set the cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # hide inactive cursor
 hhp &
@@ -54,7 +54,7 @@ devmon &
 compton --config ~/.compton.conf -b
 
 # music
-mpd ~/.mpdconf
+mpd ~/.mpdconf &
 
 # icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \

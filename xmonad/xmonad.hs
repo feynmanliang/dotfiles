@@ -45,16 +45,22 @@ import qualified Data.Map as M
 -- Config {{{
 -- Define Terminal
 myTerminal      = "urxvtc"
--- Define modMask
-modMask' :: KeyMask
-modMask' = mod1Mask
 -- Define workspaces
 myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
 -- Dzen/Conky
 myXmonadBar = "dzen2 -x '0' -y '0' -h '24' -w '1030' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
--- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
 myBitmapsDir = "/home/fliang/.xmonad/dzen2"
+-- Define modMask
+modMask' :: KeyMask
+
+-- 1080p external monitor settings
+modMask' = mod4Mask -- WinKey
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
+
+-- 1600x900 native laptop settings
+-- modMask' = mod1Mask -- Alt
+-- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
+
 --}}}
 -- Main {{{
 main = do
@@ -72,6 +78,7 @@ main = do
       , focusedBorderColor  = colorFocusedBorder
       , borderWidth         = 2
       , startupHook         = setWMName "LG3D"
+      , handleEventHook     = fullscreenEventHook
 }
 --}}}
 
@@ -102,7 +109,7 @@ manageHook' = (composeAll . concat $
         -- classnames
         --
         myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor", "Mathematica", "XMathematica"]
-        myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser","Dwb"]
+        myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser"]
         myMovie   = ["Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
@@ -215,7 +222,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask,      xK_l        ), spawn "xscreensaver-command -activate")
     -- Programs
     , ((0,                          xK_Print    ), spawn "scrot -e 'mv $f ~/screenshots/'")
-    , ((modMask,		            xK_o        ), spawn "dwb")
+    , ((modMask,		            xK_o        ), spawn "chromium")
     , ((modMask,                    xK_m        ), spawn "nautilus --no-desktop --browser")
     -- Media Keys
     , ((0,                          0x1008ff12  ), spawn "amixer -q sset Master toggle")        -- XF86AudioMute
