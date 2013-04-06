@@ -9,4 +9,4 @@ if has("wildmenu")
 endif
 
 " PYTHONPATH (for powerline)
-set rtp+=/usr/lib/python3.3/site-packages/powerline/bindings/vim
+let $PYTHONPATH="$PYTHONPATH:/usr/lib/python3.3/site-packages"

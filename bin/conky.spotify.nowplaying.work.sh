@@ -24,7 +24,7 @@ if [ "$(~/bin/conky.spotify.nowplaying.sh)" != "$(cat ~/.cache/spotify-nowplayin
 fi
 
 ## is it playing, or paused?
-status=$(qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get org.mpris.MediaPlayer2.Player PlaybackStatus)
+status=$(qdbus-qt4 org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get org.mpris.MediaPlayer2.Player PlaybackStatus)
 if [ "$status" == "Paused" ]
     then
         pt=$(cat ~/.cache/spotify-paused)

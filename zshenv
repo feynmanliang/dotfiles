@@ -74,7 +74,7 @@ if [[ -d "$TMPDIR" ]]; then
 fi
 
 #
-# PacMatic - don't let pacman/yaourt clobber the system!
+# PacMatic - don't let pacman clobber the system!
 #
 export warn_time="86400"  # (seconds)
-export pacman_program="yaourt"
+export pacman_program="pacman"
