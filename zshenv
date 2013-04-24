@@ -12,7 +12,7 @@
 # if [[ "$OSTYPE" == darwin* ]]; then
 #   export BROWSER='open'
 # fi
-export BROWSER='dwb'
+export BROWSER='chromium'
 
 #
 # Editors
@@ -44,8 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  ~/bin
   $path
+  $HOME/bin
 )
 
 #
@@ -78,3 +78,7 @@ fi
 #
 export warn_time="86400"  # (seconds)
 export pacman_program="pacman"
+
+# Add algs4.cs.princeton.edu packages
+test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh
+

@@ -27,3 +27,7 @@ URxvt*.depth: 32
 URxvt*.background: [70]#000000
 ! URxvt*transparent: true
 ! URxvt*shading: 85
+!
+! Mathematica ---------
+Mathematica*background: #969896
+Mathematica*foreground: #1d1f21

@@ -77,6 +77,9 @@ alias ipythonnb="ipython notebook --pylab inline"
 # better man
 alias man="pinfo -m"
 
+# secure ssh dns
+alias ssh="ssh-dnssec"
+
 # Functions
 #
 # (f)ind by (n)ame
