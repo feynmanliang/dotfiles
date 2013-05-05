@@ -33,7 +33,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'gpg-agent' \
+  'gpg' \
   'tmux' \
   'pacman' \
   'git' \
@@ -91,13 +91,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:screen' auto-start 'yes'
 
 #
-# GPG-Agent
-#
-
-# Enable SSH-Agent protocol emulation.
-zstyle ':prezto:module:gpg-agent' ssh-support 'yes'
-
-#
 # SSH-Agent
 #
 
@@ -112,13 +105,20 @@ zstyle ':prezto:module:gpg-agent' ssh-support 'yes'
 #
 
 # Set syntax highlighters.
-# By default main, brackets, and cursor are enabled.
+# By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
   'pattern' \
   'cursor' \
   'root'
+#
+# Set syntax highlighting styles.
+# zstyle ':prezto:module:syntax-highlighting' styles \
+#   'builtin' 'bg=blue' \
+#   'command' 'bg=blue' \
+#   'function' 'bg=blue'
+#
 
 #
 # Terminal
@@ -132,5 +132,5 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 #
 
 # Auto start a session when Zsh is launched.
-# zstyle ':prezto:module:tmux' auto-start 'yes'
+zstyle ':prezto:module:tmux' auto-start 'yes'
 

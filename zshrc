@@ -38,3 +38,5 @@ export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
 if [ "$PS1" ]; then
   alsi
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
