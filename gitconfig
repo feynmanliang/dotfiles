@@ -92,7 +92,7 @@
 [merge]
   summary = true
   verbosity = 1
-  tool = mvimdiff
+	tool = vimdiff
 [apply]
   whitespace = nowarn
 [branch]

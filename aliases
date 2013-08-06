@@ -74,9 +74,6 @@ alias secure_chromium="chromium --proxy-server=socks://localhost:4711"
 # ipython notebook
 alias ipythonnb="ipython notebook --pylab inline"
 
-# better man
-alias man="pinfo -m"
-
 # secure ssh dns
 alias ssh="ssh-dnssec"
 

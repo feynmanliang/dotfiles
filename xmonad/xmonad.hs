@@ -42,8 +42,8 @@ import qualified Data.Map as M
 
 --}}}
 
--- Config {{{
--- Define Terminal
+--- - Config {{{
+--- - Define Terminal
 myTerminal      = "urxvtc"
 -- Define workspaces
 myWorkspaces    = ["1:main","2:web","3:write","4:read","5:chat","6:music", "7:gimp", "8:misc"]
@@ -54,12 +54,12 @@ myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 modMask' :: KeyMask
 
 -- 1080p external monitor settings
--- modMask' = mod4Mask -- WinKey
--- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
+modMask' = mod4Mask -- WinKey
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
 
 -- 1600x900 native laptop settings
-modMask' = mod1Mask -- Alt
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
+-- modMask' = mod1Mask -- Alt
+-- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
 
 --}}}
 -- Main {{{

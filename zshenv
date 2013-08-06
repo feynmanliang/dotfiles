@@ -46,6 +46,7 @@ path=(
   /usr/local/{bin,sbin}
   $path
   $HOME/bin
+  /opt/android-sdk/tools/
 )
 
 #
