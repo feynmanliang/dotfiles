@@ -31,9 +31,6 @@ else
   bindkey "^s" history-incremental-search-forward
 fi
 
-# Colorize terminal
-export PATH=/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
-
 # Print system info
 if [ "$PS1" ]; then
   alsi

@@ -44,8 +44,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
-  $path
   $HOME/bin
+  $path
   /opt/android-sdk/tools/
 )
 
@@ -78,7 +78,7 @@ fi
 # PacMatic - don't let pacman clobber the system!
 #
 export warn_time="86400"  # (seconds)
-export pacman_program="pacman"
+# export pacman_program="packer"
 
 # Add algs4.cs.princeton.edu packages
 test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh

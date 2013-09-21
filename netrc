@@ -1,0 +1,6 @@
+machine api.heroku.com
+  login feynman.liang@gmail.com
+  password 4c05cdae4523aa558d302481626bfba46afb727f
+machine code.heroku.com
+  login feynman.liang@gmail.com
+  password 4c05cdae4523aa558d302481626bfba46afb727f
