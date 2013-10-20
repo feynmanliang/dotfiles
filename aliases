@@ -75,11 +75,14 @@ alias secure_chromium="chromium --proxy-server=socks://localhost:4711"
 alias ipythonnb="ipython notebook --pylab inline"
 
 # secure ssh dns
-alias ssh="ssh-dnssec"
+alias ssh="TERM=xterm ssh-dnssec"
+
+# attach to tmux
+alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"
 
 # Functions
 #
 # (f)ind by (n)ame
 # usage: fn foo 
 # to find all files containing 'foo' in the name
-function fn() { ls **/*$1* }
+unction fn() { ls **/*$1* }

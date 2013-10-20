@@ -21,13 +21,12 @@ xrdb -load ~/.Xresources &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # gnome keyring
+# Start a D-Bus session if none (should already be there)
+source /etc/X11/xinit/xinitrc.d/30-dbus
 # Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets )
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 # You probably need to do this too:
-# export SSH_AUTH_SOCK # handled by zprezto gpg-agent module
-# export GPG_AGENT_INFO # handled by zprezto gpg-agent module
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
+export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
 # urxvt daemon
 urxvtd -q -o -f &
