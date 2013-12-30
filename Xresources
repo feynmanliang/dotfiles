@@ -20,6 +20,7 @@ dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 
 
 ! URxvt ----------------
+URxvt*iso14755: false
 URxvt*urgentOnBell: true
 URxvt*saveLines: 12000
 URxvt*geometry: 80x20

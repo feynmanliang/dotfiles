@@ -17,6 +17,9 @@ xrdb -load ~/.Xresources &
 # screen resolution
 ./.screenlayout/ViewSonicExternal.sh
 
+# samsung tools session service
+/usr/share/samsung-tools/session-service.py &
+
 # gnome polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 

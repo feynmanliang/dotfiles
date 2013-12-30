@@ -117,3 +117,6 @@
   enabled = true
 [credential]
 	helper = cache --timeout=3600
+[user]
+	name = Feynman Liang
+	email = feynman.liang@gmail.com

@@ -218,7 +218,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask,                    xK_p        ), runOrRaisePrompt largeXPConfig)
     , ((modMask .|. shiftMask,      xK_Return   ), spawn $ XMonad.terminal conf)
     , ((modMask .|. shiftMask,      xK_c        ), kill)
-    , ((modMask,                    xK_F2       ), spawn "gmrun")
+    ---, ((modMask,                    xK_F2       ), spawn "gmrun")
     ---, ((modMask .|. shiftMask,      xK_l        ), spawn "slock")
     , ((modMask .|. shiftMask,      xK_l        ), spawn "xscreensaver-command -activate")
     -- Programs
