@@ -80,6 +80,12 @@ alias ssh="TERM=xterm ssh-dnssec"
 # attach to tmux
 alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"
 
+# update, clean and optimize pacman, rebuild index, free memory
+alias daily="packer -Syu && sudo paccache -rvk3 && sudo pacman-optimize && sudo updatedb && ~/bin/freemem"
+
+# mount amherst college u drive
+alias mntudrive="sudo mount -t cifs //userfiles.amherst.edu/fliang14 /home/fliang/userfiles -o username=fliang14,workgroup=amherst"
+
 # Functions
 #
 # (f)ind by (n)ame
