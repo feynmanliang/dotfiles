@@ -84,7 +84,8 @@ alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"
 alias daily="packer -Syu && sudo paccache -rvk3 && sudo pacman-optimize && sudo updatedb && ~/bin/freemem"
 
 # mount amherst college u drive
-alias mntudrive="sudo mount -t cifs //userfiles.amherst.edu/fliang14 /home/fliang/userfiles -o username=fliang14,workgroup=amherst"
+alias mntudrive="mkdir ~/userfiles && sudo mount -t cifs //userfiles.amherst.edu/fliang14 ~/userfiles -o username=fliang14,workgroup=amherst"
+alias umntudrive="sudo umount ~/userfiles && rmdir ~/userfiles"
 
 # Functions
 #
