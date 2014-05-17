@@ -128,9 +128,8 @@ manageHook' = (composeAll . concat $
 myDoFullFloat :: ManageHook
 myDoFullFloat = doF W.focusDown <+> doFullFloat
 -- }}}
-layoutHook'  =  onWorkspaces ["1:main","6:music"] customLayout $
+layoutHook'  =  onWorkspaces ["1:main","2:web","5:chat","6:music"] customLayout $
                 -- onWorkspaces ["5:chat"] imLayout $
-                onWorkspaces ["5:chat"] customLayout $
                 onWorkspaces ["7:gimp"] gimpLayout $
                 customLayout2
 
@@ -170,7 +169,7 @@ gimpLayout  = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $
               reflectHoriz $
               withIM (0.15) (Role "gimp-dock") Full
 
---imLayout    = avoidStruts $ withIM (1%5) (Or (Title "Buddy List") (And (Resource "main") (ClassName "psi"))) Grid 
+--imLayout    = avoidStruts $ withIM (1%5) (Or (Title "Buddy List") (And (Resource "main") (ClassName "psi"))) Grid
 --}}}
 -- Theme {{{
 -- Color names are easier to remember:

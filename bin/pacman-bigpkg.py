@@ -122,3 +122,4 @@ print("      SIZE       PKG")
 for pkg in range(len(pkg_usage)):
     print("{0}".format(adjust_space(pkg_usage[pkg][1], find_pkg_size(round(pkg_usage[pkg][0])))))
 print("      SIZE       PKG")
+

@@ -20,6 +20,7 @@ dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 
 
 ! URxvt ----------------
+URxvt*.matcher.rend.0: Uline Bold fg8
 URxvt*iso14755: false
 URxvt*urgentOnBell: true
 URxvt*saveLines: 12000

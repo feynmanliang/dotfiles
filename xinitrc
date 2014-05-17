@@ -77,6 +77,9 @@ sh ~/.fehbg &
 # screen dimming
 redshiftgui &
 
+# pulseaudio system tray
+pasystray &
+
 # update dynamic dns
 afraid-dyndns-uv &
 

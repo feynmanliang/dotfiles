@@ -55,7 +55,7 @@ alias rs='rspec spec'
 # Use Ctrl-x,Ctrl-l to get the output of the last command
 zmodload -i zsh/parameter
 insert-last-command-output() {
-LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
 }
 zle -N insert-last-command-output
 bindkey "^X^L" insert-last-command-output
@@ -78,18 +78,67 @@ alias ipythonnb="ipython notebook --pylab inline"
 alias ssh="TERM=xterm ssh-dnssec"
 
 # attach to tmux
-alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"
+# alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"
+at() {
+  if [ -z "$*" ]; then
+    tmux attach-session -t \#Prezto || tmux new-session -s \#Prezto
+  else
+    tmux attach-session -t "$*" || tmux new-session -s "$*"
+  fi
+}
+
+# Pacman alias examples
+alias pacupg='sudo pacmatic -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
+alias pacin='sudo pacmatic -S'		# Install specific package(s) from the repositories
+alias pacins='sudo pacmatic -U'		# Install specific package not from the repositories but from a file
+alias pacre='sudo pacmatic -R'		# Remove the specified package(s), retaining its configuration(s) and required dependencies
+alias pacrem='sudo pacmatic -Rns'		# Remove the specified package(s), its configuration(s) and unneeded dependencies
+alias pacrep='pacmatic -Si'		# Display information about a given package in the repositories
+alias pacreps='pacmatic -Ss'		# Search for package(s) in the repositories
+alias pacloc='pacmatic -Qi'		# Display information about a given package in the local database
+alias paclocs='pacmatic -Qs'		# Search for package(s) in the local database
+alias paclo="pacmatic -Qdt"		# List all packages which are orphaned
+alias pacc="sudo pacmatic -Scc"		# Clean cache - delete all not currently installed package files
+alias paclf="pacmatic -Ql"		# List all files installed by a given package
+alias pacexpl="pacmatic -D --asexp"	# Mark one or more installed packages as explicitly installed
+alias pacimpl="pacmatic -D --asdep"	# Mark one or more installed packages as non explicitly installed
+
+# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
+alias pacro="patcmatic -Qtdq > /dev/null && sudo pacmatic -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
+
+# Additional pacman alias examples
+alias pacupd='sudo pacmatic -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
+alias pacinsd='sudo pacmatic -S --asdeps'            # Install given package(s) as dependencies
+alias pacmir='sudo pacmatic -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+
+# dealing with the following message from pacman:
+#
+#     error: couldnt lock database: file exists
+#     if you are sure a package manager is not already running, you can remove /var/lib/pacman/db.lck
+
+alias pacunlock="sudo rm /var/lib/pacman/db.lck"   # Delete the lock file /var/lib/pacman/db.lck
+alias paclock="sudo touch /var/lib/pacman/db.lck"  # Create the lock file /var/lib/pacman/db.lck
 
 # update, clean and optimize pacman, rebuild index, free memory
-alias daily="packer -Syu && sudo paccache -rvk3 && sudo pacman-optimize && sudo updatedb && ~/bin/freemem"
+alias daily="sudo pacmatic -Syu; sudo aura -Akua; sudo paccache -rvk3; sudo pacman-optimize; sudo updatedb; ~/bin/freemem"
+
+# start VNC server
+alias startvncslim="sudo x11vnc -auth /var/run/slim.auth -display :0 -usepw -many" # uses SLIM Xauth
+alias startvnc="x11vnc -auth /home/fliang/.Xauthority -display :0 -usepw -many" # uses fliang user Xauth
 
 # mount amherst college u drive
 alias mntudrive="mkdir ~/userfiles && sudo mount -t cifs //userfiles.amherst.edu/fliang14 ~/userfiles -o username=fliang14,workgroup=amherst"
 alias umntudrive="sudo umount ~/userfiles && rmdir ~/userfiles"
+
+# flush DNS
+alias flushdns="sudo pdnsd-ctl empty-cache; sudo systemctl restart pdnsd"
+
+# wget entire directory tree recursively
+alias wgetdir="wget -m -e robots=off -nH --cut-dirs=2 --user-agent=Mozilla/5.0 --no-parent --reject \"index.html*\""
 
 # Functions
 #
 # (f)ind by (n)ame
 # usage: fn foo 
 # to find all files containing 'foo' in the name
-unction fn() { ls **/*$1* }
+fn() { ls **/*$1* }
