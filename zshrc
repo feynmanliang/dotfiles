@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
- 
+
 # Include personal settings (customize ~/.secrets as needed)
 if [ -e ~/.secrets ]; then
   source ~/.secrets/zsh_env

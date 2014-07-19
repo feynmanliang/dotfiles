@@ -111,6 +111,9 @@ alias pacupd='sudo pacmatic -Sy && sudo abs'         # Update and refresh the lo
 alias pacinsd='sudo pacmatic -S --asdeps'            # Install given package(s) as dependencies
 alias pacmir='sudo pacmatic -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
+# update pacman mirrors
+alias pacmirrorupd='sudo /usr/bin/reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist'
+
 # dealing with the following message from pacman:
 #
 #     error: couldnt lock database: file exists
