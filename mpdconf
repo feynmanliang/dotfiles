@@ -79,6 +79,7 @@ sticker_file			"~/.mpd/sticker.sql"
 #
 # For network
 # bind_to_address		"any"
+bind_to_address		"127.0.0.1"
 # bind_to_address		"localhost"
 #
 # And for Unix Socket

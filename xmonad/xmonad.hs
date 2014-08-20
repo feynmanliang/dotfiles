@@ -115,7 +115,7 @@ manageHook' = (composeAll . concat $
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
         myGimp	  = ["Gimp", "Inkscape", "Xsane"]
         myDev	  = ["urxctc", "urxvt", "urxvtc"]
-        myWrite   = ["Gvim", "matlab"]
+        myWrite   = ["Gvim"]
         myRead    = ["Evince"]
 
         -- resources
@@ -258,7 +258,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     
     -- quit, or restart
     , ((modMask .|. shiftMask,      xK_BackSpace        ), io (exitWith ExitSuccess))
-    , ((modMask,                    xK_q        ), spawn "killall dzen2 && killall conky && xmonad --recompile && xmonad --restart")
+    , ((modMask,                    xK_q        ), spawn "killall dzen2; killall conky; xmonad --recompile; xmonad --restart")
     ]
     ++
     -- mod-[1..9] %! Switch to workspace N

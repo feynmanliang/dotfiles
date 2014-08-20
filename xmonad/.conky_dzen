@@ -5,6 +5,9 @@ out_to_x no
 # Update interval in seconds
 update_interval 1
 
+mpd_host 127.0.0.1
+mpd_port 6600
+
 TEXT
 ^i(/home/fliang/.xmonad/dzen2/cpu.xbm) ^fg(\#FFFFFF)${cpu}%\
 ^i(/home/fliang/.xmonad/dzen2/mem.xbm) ^fg(\#FFFFFF)${memperc}%\
@@ -14,18 +17,27 @@ TEXT
 ^fg(\#ff3333) ^i(/home/fliang/.xmonad/dzen2/net_up_03.xbm)${upspeed enp2s0}\
 ${endif}\
 ^fg(\#ebac54)^i(/home/fliang/.xmonad/dzen2/mpd.xbm) \
-${if_running spotify}\
-${texeci 1 ~/bin/conky.spotify.nowplaying.work.sh}\
-^fg(\#00ffff)${scroll 36 ${exec cat ~/.cache/spotify-nowplaying}} \
-- ${exec cat ~/.cache/spotify-nowplaying-elapsed-pretty}/${exec cat ~/.cache/spotify-nowplaying-length-pretty}\
-${else}${if_mpd_playing}\
+${if_mpd_playing}\
 ^fg(\#00ffff)${scroll 36 ${mpd_artist} - ${mpd_title}} \
 - ${mpd_elapsed}/${mpd_length}\
 ${endif}\
-${endif}\
   ^fg(\#ebac54)^i(/home/fliang/.xmonad/dzen2/volume.xbm)\
  ^fg(\#00ffff)${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%\
- ^fg(\#ebac54) ^i(/home/fliang/.xmonad/dzen2/clock.xbm) ^fg(\#FFFFFF) ${time %m %d %Y} ^fg(\#ebac54) ${time %R}
+ ^fg(\#ebac54) ^i(/home/fliang/.xmonad/dzen2/clock.xbm) ^fg(\#FFFFFF) ${time %m %d %Y} ^fg(\#ebac54) ${time %R}\
 
 # MPD Now Playing
-# ^fg(\#ebac54) ^i(/home/fliang/.xmonad/dzen2/mpd.xbm) ^fg(\#00ffff)${exec rhythmbox-client --print-playing-format "%aa-%at-%tt" | cut -c-70} 
+#^fg(\#ebac54) ^i(/home/fliang/.xmonad/dzen2/mpd.xbm)
+#${if_mpd_playing}\
+#^fg(\#00ffff)${scroll 36 ${mpd_artist} - ${mpd_title}} \
+#- ${mpd_elapsed}/${mpd_length}\
+#${endif}\
+
+# Rhythmbox Now Playing
+#^fg(\#00ffff)${exec rhythmbox-client --print-playing-format "%aa-%at-%tt" | cut -c-70}
+
+# Spotify Code
+#${if_running spotify}\
+#${texeci 1 ~/bin/conky.spotify.nowplaying.work.sh}\
+#^fg(\#00ffff)${scroll 36 ${exec cat ~/.cache/spotify-nowplaying}} \
+#- ${exec cat ~/.cache/spotify-nowplaying-elapsed-pretty}/${exec cat ~/.cache/spotify-nowplaying-length-pretty}\
+#${endif}\
