@@ -72,7 +72,8 @@ dropboxd &
 nm-applet --sm-disable &
 
 # wallpaper
-sh ~/.fehbg &
+# sh ~/.fehbg &
+sh ~/bin/wallpaper.sh
 
 # screen dimming
 redshiftgui &
