@@ -72,7 +72,7 @@ alias sshtunnel="ssh -ND 4711 -v feynmanliang"
 alias secure_chromium="chromium --proxy-server=socks://localhost:4711"
 
 # ipython notebook
-alias ipythonnb="ipython notebook --pylab inline"
+alias ipythonnb="ipython notebook --ip=127.0.0.1 --pylab inline"
 
 # secure ssh dns
 alias ssh="TERM=xterm ssh-dnssec"
