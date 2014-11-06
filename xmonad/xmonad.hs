@@ -110,11 +110,11 @@ manageHook' = (composeAll . concat $
         --
         myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor", "Mathematica", "XMathematica"]
         myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser"]
-        myMovie   = ["Boxee","Trine"]
+        myMovie   = ["VLC","Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
         myGimp	  = ["Gimp", "Inkscape", "Xsane"]
-        myDev	  = ["urxctc", "urxvt", "urxvtc"]
+        myDev	  = []
         myWrite   = ["Gvim"]
         myRead    = ["Evince"]
 

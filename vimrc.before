@@ -9,4 +9,4 @@ if has("wildmenu")
 endif
 
 " PYTHONPATH (for powerline)
-let $PYTHONPATH="$PYTHONPATH:/usr/lib/python3.3/site-packages"
+let $PYTHONPATH="$PYTHONPATH:/usr/lib/python3.4/site-packages"

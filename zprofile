@@ -51,8 +51,8 @@ typeset -gU cdpath fpath mailpath path
 path=(
   /usr/local/{bin,sbin}
   $HOME/bin
+  $HOME/local-sw/bin
   $path
-  /opt/android-sdk/tools/
 )
 
 #
@@ -95,3 +95,5 @@ export pacman_program="aura"
 # Add algs4.cs.princeton.edu packages
 test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh
 
+# Node Modules
+export NODE_PATH=/usr/lib/node_modules:$NODE_PATH
