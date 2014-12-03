@@ -13,8 +13,13 @@ Xcursor.theme: Vanilla-DMZ-AA
 
 ! Font choice ----------------
 !Rxvt*font: xft:Consolas:size=10
-URxvt*font: xft:Consolas:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
-URxvt*boldFont: xft:Consolas:size=10:style=bold
+URxvt*font: xft:Consolas:regular:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
+!URxvt*font: xft:Menlo:regular:size=8
+URxvt*imFont: xft:Consolas:regular:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
+URxvt*boldFont: xft:Consolas:bold:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
+URxvt*italicFont: xft:Consolas:italic:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
+URxvt*boldItalicFont: xft:Consolas:bold:italic:size=10,xft:Inconsolata\ for\ Powerline:pixelsize=12
+!URxvt*boldFont: xft:Consolas:size=10:style=bold
 dzen2.font: terminus:pixelsize=12:antialias=false:hinting=none
 dzen2.boldFont: terminus:bold:pixelsize=12:antialias=false:hinting=none
 
