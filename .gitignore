@@ -9,3 +9,4 @@ xmonad/history
 *.swp
 bin/non-db.txt
 */cache/
+vimtags/
