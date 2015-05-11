@@ -18,7 +18,7 @@ import XMonad.Actions.CycleWS
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.SetWMName
+{-import XMonad.Hooks.SetWMName-}
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.FadeInactive
@@ -54,12 +54,12 @@ myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 modMask' :: KeyMask
 
 -- 1080p external monitor settings
-modMask' = mod4Mask -- WinKey
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
+-- modMask' = mod4Mask -- WinKey
+-- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
 
 -- 1600x900 native laptop settings
--- modMask' = mod1Mask -- Alt
--- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
+modMask' = mod1Mask -- Alt
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
 
 --}}}
 -- Main {{{
@@ -77,7 +77,7 @@ main = do
       , normalBorderColor   = colorNormalBorder
       , focusedBorderColor  = colorFocusedBorder
       , borderWidth         = 2
-      , startupHook         = setWMName "LG3D"
+      {-, startupHook         = setWMName "LG3D" -- Breaks with LG3D, instead modify /etc/profile.d/jre.sh -}
       , handleEventHook     = fullscreenEventHook
 }
 --}}}

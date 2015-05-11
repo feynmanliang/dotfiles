@@ -19,3 +19,4 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 xmonad --recompile
 xmonad --restart
 
+xmodmap ~/.speedswapper

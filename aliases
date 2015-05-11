@@ -139,9 +139,13 @@ alias flushdns="sudo pdnsd-ctl empty-cache; sudo systemctl restart pdnsd"
 # wget entire directory tree recursively
 alias wgetdir="wget -m -e robots=off -nH --cut-dirs=2 --user-agent=Mozilla/5.0 --no-parent --reject \"index.html*\""
 
+# make latex
+alias latexmkpdf="latexmk -pdf -pvc"
+
 # Functions
 #
 # (f)ind by (n)ame
 # usage: fn foo 
 # to find all files containing 'foo' in the name
 fn() { ls **/*$1* }
+

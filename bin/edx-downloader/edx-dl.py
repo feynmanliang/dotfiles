@@ -51,12 +51,16 @@ from bs4 import BeautifulSoup
 
 OPENEDX_SITES = {
     'edx': {
-        'url': 'https://courses.edx.org', 
-        'courseware-selector': ('nav', {'aria-label':'Course Navigation'}),
-    }, 
+        'url': 'https://courses.edx.org',
+        'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
+    },
     'stanford': {
         'url': 'https://class.stanford.edu',
-        'courseware-selector': ('section', {'aria-label':'Course Navigation'}),
+        'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
+    },
+    'usyd-sit': {
+        'url': 'http://online.it.usyd.edu.au',
+        'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
     },
 }
 BASE_URL = OPENEDX_SITES['edx']['url']
@@ -67,13 +71,43 @@ COURSEWARE_SEL = OPENEDX_SITES['edx']['courseware-selector']
 
 YOUTUBE_VIDEO_ID_LENGTH = 11
 
-## If nothing else is chosen, we chose the default user agent:
+# If nothing else is chosen, we chose the default user agent
 
-DEFAULT_USER_AGENTS = {"chrome": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31",
-                       "firefox": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0",
-                       "edx": 'edX-downloader/0.01'}
+DEFAULT_USER_AGENTS = {
+    "chrome": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31",
+    "firefox": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0",
+    "edx": 'edX-downloader/0.01'
+}
 
 USER_AGENT = DEFAULT_USER_AGENTS["edx"]
+
+# To replace the print function, the following function must be placed
+# before any other call for print
+
+
+def print(*objects, **kwargs):
+    """
+    Overload the print function to adapt for the encoding bug in Windows Console.
+    It will try to convert text to the console encoding before print to prevent crashes.
+    """
+    try:
+        stream = kwargs.get('file', None)
+        if stream is None:
+            stream = sys.stdout
+        enc = stream.encoding
+        if enc is None:
+            enc = sys.getdefaultencoding()
+    except AttributeError:
+        return __builtins__.print(*objects, **kwargs)
+    texts = []
+    for object in objects:
+        try:
+            original_text = str(object)
+        except UnicodeEncodeError:
+            original_text = unicode(object)
+        texts.append(original_text.encode(enc, errors='replace').decode(enc))
+    return __builtins__.print(*texts, **kwargs)
+
 
 def change_openedx_site(site_name):
     global BASE_URL
@@ -85,12 +119,13 @@ def change_openedx_site(site_name):
     if site_name not in OPENEDX_SITES.keys():
         print("OpenEdX platform should be one of: %s" % ', '.join(OPENEDX_SITES.keys()))
         sys.exit(2)
-    
+
     BASE_URL = OPENEDX_SITES[site_name]['url']
     EDX_HOMEPAGE = BASE_URL + '/login_ajax'
     LOGIN_API = BASE_URL + '/login_ajax'
     DASHBOARD = BASE_URL + '/dashboard'
     COURSEWARE_SEL = OPENEDX_SITES[site_name]['courseware-selector']
+
 
 def get_initial_token():
     """
@@ -127,7 +162,7 @@ def get_page_contents(url, headers):
 
 def directory_name(initial_name):
     import string
-    allowed_chars = string.digits+string.ascii_letters+" _."
+    allowed_chars = string.digits + string.ascii_letters + " _."
     result_name = ""
     for ch in initial_name:
         if allowed_chars.find(ch) != -1:
@@ -161,6 +196,9 @@ def edx_get_subtitle(url, headers):
         return edx_json2srt(jsonObject)
     except URLError as e:
         print('[warning] edX subtitles (error:%s)' % e.reason)
+        return None
+    except ValueError as e:
+        print('[warning] edX subtitles (error:%s)' % e.message)
         return None
 
 
@@ -212,7 +250,7 @@ def parse_args():
                         '--platform',
                         action='store',
                         dest='platform',
-                        help='OpenEdX platform, currently either "edx" or "stanford"',
+                        help='OpenEdX platform, currently either "edx", "stanford" or "usyd-sit"',
                         default='edx')
 
     args = parser.parse_args()
@@ -259,28 +297,28 @@ def main():
     dash = get_page_contents(DASHBOARD, headers)
     soup = BeautifulSoup(dash)
     data = soup.find_all('ul')[1]
-    USERNAME = data.find_all('span')[1].string
     COURSES = soup.find_all('article', 'course')
     courses = []
     for COURSE in COURSES:
         c_name = COURSE.h3.text.strip()
-        c_link = BASE_URL + COURSE.a['href']
-        if c_link.endswith('info') or c_link.endswith('info/'):
-            state = 'Started'
-        else:
-            state = 'Not yet'
+        c_link = None
+        state = 'Not yet'
+        try:
+            # started courses include the course link in the href attribute
+            c_link = BASE_URL + COURSE.a['href']
+            if c_link.endswith('info') or c_link.endswith('info/'):
+                state = 'Started'
+        except KeyError:
+            pass
         courses.append((c_name, c_link, state))
     numOfCourses = len(courses)
 
     # Welcome and Choose Course
 
-    print('Welcome %s' % USERNAME)
     print('You can access %d courses' % numOfCourses)
 
-    c = 0
-    for course in courses:
-        c += 1
-        print('%d - %s -> %s' % (c, course[0], course[2]))
+    for idx, course in enumerate(courses, 1):
+        print('%d - %s -> %s' % (idx, course[0], course[2]))
 
     c_number = int(input('Enter Course Number: '))
     while c_number > numOfCourses or courses[c_number - 1][2] != 'Started':
@@ -290,7 +328,7 @@ def main():
     selected_course = courses[c_number - 1]
     COURSEWARE = selected_course[1].replace('info', 'courseware')
 
-    ## Getting Available Weeks
+    # Get Available Weeks
     courseware = get_page_contents(COURSEWARE, headers)
     soup = BeautifulSoup(courseware)
 
@@ -318,46 +356,51 @@ def main():
     else:
         links = weeks[w_number - 1][1]
 
-    video_id = []
-    subsUrls = []
-    regexpSubs = re.compile(r'data-caption-asset-path=(?:&#34;|")([^"&]*)(?:&#34;|")')
+    if is_interactive:
+        args.subtitles = input('Download subtitles (y/n)? ').lower() == 'y'
+
+    video_ids = []
+    sub_urls = []
     splitter = re.compile(r'data-streams=(?:&#34;|").*1.0[0]*:')
+    re_subs = re.compile(r'data-transcript-translation-url=(?:&#34;|")([^"&]*)(?:&#34;|")')
     extra_youtube = re.compile(r'//w{0,3}\.youtube.com/embed/([^ \?&]*)[\?& ]')
     for link in links:
         print("Processing '%s'..." % link)
         page = get_page_contents(link, headers)
-
-        id_container = splitter.split(page)[1:]
-        video_id += [link[:YOUTUBE_VIDEO_ID_LENGTH] for link in
-                     id_container]
-        subsUrls += [BASE_URL + regexpSubs.search(container).group(1) + id + ".srt.sjson"
-                     for id, container in zip(video_id[-len(id_container):], id_container)]
+        sections = splitter.split(page)[1:]
+        for section in sections:
+            video_id = section[:YOUTUBE_VIDEO_ID_LENGTH]
+            sub_url = ''
+            if args.subtitles:
+                match_subs = re_subs.search(section)
+                if match_subs:
+                    sub_url = BASE_URL + match_subs.group(1) + "/en" + "?videoId=" + video_id
+            video_ids += [video_id]
+            sub_urls += [sub_url]
         # Try to download some extra videos which is referred by iframe
         extra_ids = extra_youtube.findall(page)
-        video_id += [link[:YOUTUBE_VIDEO_ID_LENGTH] for link in
-                     extra_ids]
-        subsUrls += ['' for link in extra_ids]
+        video_ids += [link[:YOUTUBE_VIDEO_ID_LENGTH] for link in
+                      extra_ids]
+        sub_urls += ['' for e_id in extra_ids]
 
-    video_link = ['http://youtube.com/watch?v=' + v_id
-                  for v_id in video_id]
+    video_urls = ['http://youtube.com/watch?v=' + v_id
+                  for v_id in video_ids]
 
-    if len(video_link) < 1:
+    if len(video_urls) < 1:
         print('WARNING: No downloadable video found.')
         sys.exit(0)
 
     if is_interactive:
         # Get Available Video formats
-        os.system('youtube-dl -F %s' % video_link[-1])
+        os.system('youtube-dl -F %s' % video_urls[-1])
         print('Choose a valid format or a set of valid format codes e.g. 22/17/...')
         args.format = input('Choose Format code: ')
-
-        args.subtitles = input('Download subtitles (y/n)? ').lower() == 'y'
 
     print("[info] Output directory: " + args.output_dir)
 
     # Download Videos
     c = 0
-    for v, s in zip(video_link, subsUrls):
+    for v, s in zip(video_urls, sub_urls):
         c += 1
         target_dir = os.path.join(args.output_dir,
                                   directory_name(selected_course[0]))
@@ -375,11 +418,10 @@ def main():
         popen_youtube = Popen(cmd, stdout=PIPE, stderr=PIPE)
 
         youtube_stdout = b''
-        enc = sys.getdefaultencoding()
         while True:  # Save output to youtube_stdout while this being echoed
             tmp = popen_youtube.stdout.read(1)
             youtube_stdout += tmp
-            print(tmp.decode(enc), end="")
+            print(tmp, end="")
             sys.stdout.flush()
             # do it until the process finish and there isn't output
             if tmp == b"" and popen_youtube.poll() is not None:
@@ -403,7 +445,6 @@ def get_filename(target_dir, filename_prefix):
     # the info from the video_url or the current output, to avoid the
     # iteration from the current dir
     filenames = os.listdir(target_dir)
-    subs_filename = filename_prefix
     for name in filenames:  # Find the filename of the downloaded video
         if name.startswith(filename_prefix):
             (basename, ext) = os.path.splitext(name)
