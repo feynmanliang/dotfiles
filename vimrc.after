@@ -2,6 +2,8 @@
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
+" Airline Configuration
+au VimEnter * AirlineTheme powerlineish
 let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
