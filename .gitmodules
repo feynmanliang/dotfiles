@@ -10,6 +10,9 @@
 [submodule "janus/OmniCppComplete"]
 	path = janus/OmniCppComplete
 	url = https://github.com/vim-scripts/OmniCppComplete
+[submodule "janus/vim-airline"]
+	path = janus/vim-airline
+	url = https://github.com/bling/vim-airline
 [submodule "janus/vim-hybrid"]
 	path = janus/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid

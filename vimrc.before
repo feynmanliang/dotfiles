@@ -7,6 +7,3 @@ if has("wildmenu")
     set wildmenu
     set wildmode=longest,list:full
 endif
-
-" PYTHONPATH (for powerline)
-let $PYTHONPATH="$PYTHONPATH:/usr/lib/python3.4/site-packages"
