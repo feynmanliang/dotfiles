@@ -31,7 +31,7 @@ alias tf='tail -f'
 alias l='less'
 alias lh='ls -alt | head' # see the last modified files
 alias cl='clear'
-alias open='xdg-open'
+#alias open='xdg-open'
 
 # Zippin
 alias gz='tar -zcvf'
@@ -149,3 +149,5 @@ alias latexmkpdf="latexmk -pdf -pvc"
 # to find all files containing 'foo' in the name
 fn() { ls **/*$1* }
 
+# MacVim terminal
+alias vim="mvim -v"

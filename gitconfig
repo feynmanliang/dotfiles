@@ -1,7 +1,7 @@
 # set your user tokens as enivornment variables, such as ~/.secrets
 # See the README for examples.
 [color]
-  ui = true
+	ui = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -120,4 +120,4 @@
 	helper = cache --timeout=3600
 [user]
 	name = Feynman Liang
-	email = feynman.liang@gmail.com
+	email = fliang@databricks.com
