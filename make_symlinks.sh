@@ -2,6 +2,7 @@
 
 FILES=" ackrc
 aliases
+ctags
 colors
 gitconfig
 gitignore_global

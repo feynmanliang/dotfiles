@@ -16,3 +16,6 @@
 [submodule "janus/vim-hybrid"]
 	path = janus/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule "janus/neocomplete.vim"]
+	path = janus/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim
