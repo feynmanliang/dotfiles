@@ -7,3 +7,6 @@ if has("wildmenu")
     set wildmenu
     set wildmode=longest,list:full
 endif
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1

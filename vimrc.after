@@ -71,11 +71,11 @@ endfunction
 " noremap  <buffer> <silent> $ g$
 
 " configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vimtags/cpp
-set tags=tags;/
+set tags+=~/.vimtags/cpp;/
 
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1
+" scala.vim import sorting
+let g:scala_sort_across_groups=1
+let g:scala_first_party_namespaces='\(com.databricks\|org.apache.spark\)'
 
 " Use C++11
 let g:syntastic_cpp_compiler = 'clang++'

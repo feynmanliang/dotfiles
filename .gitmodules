@@ -19,3 +19,12 @@
 [submodule "janus/neocomplete.vim"]
 	path = janus/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim
+[submodule "janus/vim-scala"]
+	path = janus/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
+[submodule "janus/tern_for_vim"]
+	path = janus/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim
+[submodule "janus/vim-jade"]
+	path = janus/vim-jade
+	url = https://github.com/digitaltoad/vim-jade
