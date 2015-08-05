@@ -28,3 +28,9 @@
 [submodule "janus/vim-jade"]
 	path = janus/vim-jade
 	url = https://github.com/digitaltoad/vim-jade
+[submodule "janus/vim-spacebars"]
+	path = janus/vim-spacebars
+	url = https://github.com/Slava/vim-spacebars
+[submodule "janus/vim-javascript"]
+	path = janus/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
