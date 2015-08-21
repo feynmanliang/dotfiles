@@ -34,3 +34,6 @@
 [submodule "janus/vim-javascript"]
 	path = janus/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "janus/vim-jsx"]
+	path = janus/vim-jsx
+	url = https://github.com/mxw/vim-jsx

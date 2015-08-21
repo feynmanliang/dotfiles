@@ -83,3 +83,14 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " OSX Clipboard Sharing
 set clipboard=unnamed
+
+" Highlight current line/column
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn"
+
+" Set NERDtree root to current working directory
+let g:NERDTreeChDirMode       = 2
+
+" Ctrl-P working directory
+let g:ctrlp_working_path_mode = 'rw'
