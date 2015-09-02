@@ -90,7 +90,24 @@ au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn"
 
 " Set NERDtree root to current working directory
-let g:NERDTreeChDirMode       = 2
+let g:NERDTreeChDirMode = 2
 
-" Ctrl-P working directory
-let g:ctrlp_working_path_mode = 'rw'
+" Ctrl-P working directory (for Maven projects e.g. Spark)
+let g:ctrlp_root_markers = ['pom.xml']
+
+"
+" Haskell Mods
+"
+map <silent> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
+" Reload
+map <silent> tu :call GHC_BrowseAll()<CR>
+" Type Lookup
+map <silent> tw :call GHC_ShowType(1)<CR>
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+let g:tagbar_autofocus = 1
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
+autocmd BufEnter *.hs set formatprg=pointfree

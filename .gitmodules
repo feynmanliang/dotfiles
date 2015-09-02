@@ -37,3 +37,6 @@
 [submodule "janus/vim-jsx"]
 	path = janus/vim-jsx
 	url = https://github.com/mxw/vim-jsx
+[submodule "janus/vim-slime"]
+	path = janus/vim-slime
+	url = https://github.com/jpalardy/vim-slime
