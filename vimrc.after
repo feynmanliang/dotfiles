@@ -110,4 +110,6 @@ au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 let g:tagbar_autofocus = 1
 let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
-autocmd BufEnter *.hs set formatprg=pointfree
+au BufEnter *.hs compiler ghc
+let g:haddock_browser="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+let g:haddock_docdir="/usr/local/Cellar/ghc/7.10.2/share/doc/ghc/html/"

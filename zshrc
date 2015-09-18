@@ -36,6 +36,7 @@ fi
 #   alsi
 # fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$HOME/.cabal/bin:$PATH # Adds cabal
 
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules

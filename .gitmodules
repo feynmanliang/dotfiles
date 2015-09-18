@@ -40,3 +40,15 @@
 [submodule "janus/vim-slime"]
 	path = janus/vim-slime
 	url = https://github.com/jpalardy/vim-slime
+[submodule "janus/ghcmod-vim"]
+	path = janus/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim
+[submodule "janus/vimproc.vim"]
+	path = janus/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim
+[submodule "janus/haskellmode-vim"]
+	path = janus/haskellmode-vim
+	url = https://github.com/lukerandall/haskellmode-vim
+[submodule "janus/vim-hdevtools"]
+	path = janus/vim-hdevtools
+	url = https://github.com/bitc/vim-hdevtools
