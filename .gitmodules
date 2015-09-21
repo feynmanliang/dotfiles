@@ -1,10 +1,15 @@
-# Janus 3rd party (dotfiles/janus/)
-[submodule "janus/vim-hybrid"]
-	path = janus/vim-hybrid
-	url = https://github.com/w0ng/vim-hybrid
+# Submodules for dotfiles
 [submodule "vim"]
 	path = vim
 	url = https://github.com/carlhuda/janus.git
 [submodule "zprezto"]
 	path = zprezto
 	url = https://github.com/sorin-ionescu/prezto
+
+# Janus 3rd party (dotfiles/janus/)
+[submodule "janus/OmniCppComplete"]
+	path = janus/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete
+[submodule "janus/vim-hybrid"]
+	path = janus/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid

@@ -79,3 +79,6 @@ set completeopt=menuone,menu,longest,preview
 " Use C++11
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" OSX Clipboard Sharing
+set clipboard=unnamed
