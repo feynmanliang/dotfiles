@@ -117,7 +117,7 @@
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 [credential]
-	helper = cache --timeout=3600
+	helper = cache
 [user]
 	name = Feynman Liang
 	email = feynman.liang@gmail.com

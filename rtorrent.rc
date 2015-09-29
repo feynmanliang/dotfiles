@@ -35,8 +35,8 @@ schedule = tied_directory,5,5,start_tied=
 schedule = low_diskspace,5,60,close_low_diskspace=100M
 
 # The ip address reported to the tracker.
-#ip = 127.0.0.1
-ip = rakshasa.no
+ip = 127.0.0.1
+#ip = rakshasa.no
 
 # The ip address the listening socket and outgoing connections is
 # bound to.
