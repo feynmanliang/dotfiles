@@ -31,6 +31,8 @@ URxvt*scrollBar: false
 URxvt*.background: [80]#000000
 URxvt*.foreground: t_comment
 URxvt*.depth: 32
+URxvt*cursorColor: t_comment
+URxvt*cursorColor2: #555555
 ! URxvt*transparent: true
 ! URxvt*shading: 85
 !
