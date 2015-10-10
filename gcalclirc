@@ -1,3 +1,0 @@
-[gcalcli]
-user: feynman.liang@gmail.com
-pw: `gpg --batch -q --decrypt /home/fliang/.secrets/gmail.gpg`
