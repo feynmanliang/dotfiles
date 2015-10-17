@@ -10,3 +10,4 @@ xmonad/history
 bin/non-db.txt
 */cache/
 vimtags/
+ghc/ghci_history

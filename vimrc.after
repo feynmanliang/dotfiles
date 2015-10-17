@@ -2,7 +2,23 @@
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-let g:Powerline_symbols="fancy"
+" Powerline
+"let g:Powerline_symbols="fancy"
+
+" Airline Configuration
+au VimEnter * AirlineTheme powerlineish
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts=1
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
@@ -82,3 +98,18 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " OSX Clipboard Sharing
 set clipboard=unnamed
+
+" Set NERDtree root to current working directory
+let g:NERDTreeChDirMode = 2
+
+" Ctrl-P working directory (for Maven projects e.g. Spark)
+let g:ctrlp_root_markers = ['pom.xml']
+
+"
+" Haskell Configs
+"
+map <silent> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
+au FileType haskell nnoremap <buffer> <F1> :GhcModInfo<CR>
+au FileType haskell nnoremap <buffer> <silent> tw :GhcModTypeInsert<CR>
+let g:tagbar_autofocus = 1

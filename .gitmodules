@@ -13,3 +13,12 @@
 [submodule "janus/vim-hybrid"]
 	path = janus/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule "janus/vimproc.vim"]
+	path = janus/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "janus/ghcmod-vim"]
+	path = janus/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim
+[submodule "janus/vim-airline"]
+	path = janus/vim-airline
+	url = https://github.com/bling/vim-airline
