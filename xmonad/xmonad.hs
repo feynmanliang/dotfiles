@@ -59,7 +59,7 @@ modMask' :: KeyMask
 
 -- 1600x900 native laptop settings
 modMask' = mod4Mask -- WinKey = mod4Mask, Alt = mod1Mask
-myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '750' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
+myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '800' -w '624' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1600x900
 
 --}}}
 -- Main {{{
@@ -109,7 +109,7 @@ manageHook' = (composeAll . concat $
         -- classnames
         --
         myFloats  = ["Print","Smplayer","MPlayer","VirtualBox","Xmessage","XFontSel","Downloads","Nm-connection-editor", "Mathematica", "XMathematica"]
-        myWebs    = ["Firefox","Google-chrome","Chromium","Chromium-browser"]
+        myWebs    = ["Firefox","Google-chrome","chromium"]
         myMovie   = ["VLC","Boxee","Trine"]
         myMusic	  = ["Rhythmbox","Spotify"]
         myChat	  = ["Pidgin","Buddy List", "Psi", "Psi+", "chat", "psi"]
