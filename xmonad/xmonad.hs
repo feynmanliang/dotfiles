@@ -54,7 +54,7 @@ myBitmapsDir = "/home/fliang/.xmonad/dzen2"
 modMask' :: KeyMask
 
 -- 1080p external monitor settings
--- modMask' = mod4Mask -- WinKey = mod4Mask, Alt = mod1Mask
+-- modMask' = mod1Mask -- WinKey = mod4Mask, Alt = mod1Mask
 -- myStatusBar = "conky -c /home/fliang/.xmonad/.conky_dzen | dzen2 -x '1030' -w '718' -h '24' -ta 'r' -bg '#1B1D1E' -fg '#FFFFFF' -y '0'" -- for 1080p
 
 -- 1600x900 native laptop settings
