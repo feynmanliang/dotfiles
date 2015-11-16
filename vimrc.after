@@ -25,6 +25,7 @@ let g:airline#extensions#tabline#show_buffers = 1
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set colorcolumn=100 " Highlight lines past 100cw
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
@@ -45,7 +46,7 @@ function ToggleHex()
     let b:oldbin=&bin
     " set new options
     setlocal binary " make sure it overrides any textwidth, etc.
-    silent :e " this will reload the file without trickeries 
+    silent :e " this will reload the file without trickeries
     "(DOS line endings will be shown entirely )
     let &ft="xxd"
     " set status
