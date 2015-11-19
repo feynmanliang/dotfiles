@@ -31,11 +31,6 @@ else
   bindkey "^s" history-incremental-search-forward
 fi
 
-# Print system info
-if [ "$PS1" ]; then
-  alsi
-fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
 
 JAVA_HOME=/usr/lib/jvm/java-default-runtime/

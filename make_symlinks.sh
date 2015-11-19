@@ -4,7 +4,7 @@ FILES=" ackrc
 aliases
 ctags
 colors
-ghc/
+ghc
 gitconfig
 gitignore_global
 gvimrc

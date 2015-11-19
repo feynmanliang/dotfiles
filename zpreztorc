@@ -33,13 +33,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'tmux' \
-  'fasd' \
-  'pacman' \
   'git' \
-  'ruby' \
-  'rails' \
-  'syntax-highlighting' \
   'history-substring-search'
 
 #
@@ -84,7 +78,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Set the Pacman frontend.
-zstyle ':prezto:module:pacman' frontend 'aura'
+# zstyle ':prezto:module:pacman' frontend 'aura'
 
 #
 # Prompt
