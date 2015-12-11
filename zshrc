@@ -35,7 +35,3 @@ fi
 if [ "$PS1" ]; then
   alsi
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-JAVA_HOME=/usr/lib/jvm/java-default-runtime/

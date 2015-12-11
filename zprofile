@@ -98,3 +98,9 @@ test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh
 
 # Node Modules
 export NODE_PATH=/usr/lib/node_modules:$NODE_PATH
+
+# Add Gems
+export PATH=$PATH:/root/.gem/ruby/2.2.0/bin
+
+# Set Java Home
+export JAVA_HOME=/usr/lib/jvm/java-default-runtime/

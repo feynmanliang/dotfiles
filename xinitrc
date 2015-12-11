@@ -69,7 +69,7 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 cbatticon &
 
 # Dropbox
-dropboxd &
+dropbox &
 
 # network manager
 nm-applet --sm-disable &

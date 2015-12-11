@@ -70,6 +70,9 @@ function ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
+" Gundo
+map <Leader>u :GundoToggle<CR>
+
 " always move cursor by display lines
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
@@ -107,6 +110,11 @@ let g:NERDTreeChDirMode = 2
 
 " Ctrl-P working directory (for Maven projects e.g. Spark)
 let g:ctrlp_root_markers = ['pom.xml']
+
+" Ctrl-P ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|target)$',
+  \ }
 
 "
 " Haskell Configs
