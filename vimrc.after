@@ -1,6 +1,8 @@
 " have hybrid use Xresources color theme in terminal
 let g:hybrid_use_Xresources = 1
+set background=dark
 colorscheme hybrid
+highlight Normal guibg=NONE ctermbg=NONE
 
 " Powerline
 "let g:Powerline_symbols="fancy"
