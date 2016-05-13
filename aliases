@@ -152,6 +152,6 @@ alias lsports="lsof -Pn +M -i4"
 # to find all files containing 'foo' in the name
 fn() { ls **/*$1* }
 
-sshtunnelcam() { /usr/bin/ssh -4 -N -f -L 5901:mlsalt-cpu2.eng.cam.ac.uk:$1 fl350@gate.eng.cam.ac.uk }
-alias sshfscam_mount="sshfs -p 5901 fl350@127.0.0.1:/home/fl350/ ~/mlsalt-home-mnt"
+sshtunnelcam() { /usr/bin/ssh -v -4 -N -L 5901:mlsalt-cpu2.eng.cam.ac.uk:$1 fl350@gate.eng.cam.ac.uk }
+alias sshfscam_mount="sshfs -d -o transform_symlinks -o follow_symlinks -C -p 5901 fl350@127.0.0.1:/home/fl350/ ~/mlsalt-home-mnt"
 alias sshfscam_umount="fusermount -u ~/mlsalt-home-mnt"

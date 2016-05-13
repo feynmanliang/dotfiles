@@ -87,5 +87,8 @@ pasystray &
 # update dynamic dns
 afraid-dyndns-uv &
 
+# key repeat speed
+xset r rate 180 40
+
 # start xmonad (dzen2 included)
 exec xmonad

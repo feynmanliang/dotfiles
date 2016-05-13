@@ -100,7 +100,11 @@ test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh
 export NODE_PATH=/usr/lib/node_modules:$NODE_PATH
 
 # Add Gems
-export PATH=$PATH:/root/.gem/ruby/2.2.0/bin
+export PATH=$PATH:/home/fliang/.gem/ruby/2.3.0/bin
 
 # Set Java Home
 export JAVA_HOME=/usr/lib/jvm/java-default-runtime/
+
+# Add Torch
+. /home/fliang/torch/install/bin/torch-activate
+

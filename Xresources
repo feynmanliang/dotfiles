@@ -28,7 +28,7 @@ URxvt*urgentOnBell: true
 URxvt*saveLines: 12000
 URxvt*geometry: 80x20
 URxvt*scrollBar: false
-URxvt*.background: [80]#000000
+URxvt*.background: [90]#000000
 URxvt*.foreground: t_comment
 URxvt*.depth: 32
 URxvt*cursorColor: t_comment

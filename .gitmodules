@@ -28,3 +28,6 @@
 [submodule "janus/ensime-vim"]
 	path = janus/ensime-vim
 	url = https://github.com/ensime/ensime-vim
+[submodule "bin/urxvt-font"]
+	path = bin/urxvt-font
+	url = https://github.com/noah/urxvt-font
