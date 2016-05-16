@@ -75,7 +75,7 @@ alias secure_chromium="chromium --proxy-server=socks://localhost:4711"
 alias ipythonnb="ipython notebook --ip=127.0.0.1 --pylab inline"
 
 # secure ssh dns
-alias ssh="TERM=xterm ssh-dnssec"
+# alias ssh="TERM=xterm ssh-dnssec"
 
 # attach to tmux
 # alias at="tmux new-session -t \#Prezto || tmux new-session -s \#Prezto"

@@ -31,6 +31,15 @@ else
   bindkey "^s" history-incremental-search-forward
 fi
 
-PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
+PATH=$HOME/rstudio-server/bin:$HOME/R/bin:$HOME/.local/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin
 
 JAVA_HOME=/usr/lib/jvm/java-default-runtime/
+
+# add local compilation resources
+export PATH=$PATH:~/usr/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-7.0/lib64:~/usr/lib
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
+
+
+. /home/fl350/bachbot/torch/install/bin/torch-activate
